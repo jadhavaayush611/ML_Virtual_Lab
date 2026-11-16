@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1020"><title>Dimensionality Reduction | Virtual ML Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">∿</div><div><strong>ML LAB</strong><span>INTERACTIVE VIRTUAL LAB</span></div></div>
+  <div class="course-label">EXPERIMENT 03</div><div class="experiment-name">Dimensionality<br>Reduction</div>
+  <nav id="mainNav">
+    <div class="nav-caption">EXPERIMENT MODULE</div>
+    <button class="nav-item active" data-page="aim"><span>◎</span> Aim</button>
+    <button class="nav-item" data-page="theory"><span>▤</span> Theory</button>
+    <button class="nav-item" data-page="pretest"><span>?</span> Pre-test</button>
+    <button class="nav-item" data-page="simulation"><span>◉</span> Simulation</button>
+    <button class="nav-item" data-page="posttest"><span>✓</span> Post-test</button>
+    <button class="nav-item" data-page="results"><span>▥</span> Results</button>
+    <button class="nav-item" data-page="conclusion"><span>⌁</span> Conclusion</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="status-dot"></div><span>Simulation environment</span><small>v1.1</small></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="breadcrumb">Machine Learning <span>/</span> Experiments <span>/</span> <b>Dimensionality Reduction</b></div><div class="top-actions"><span class="mode-pill"><span></span> DEMO MODE</span><button class="icon-btn" id="helpBtn">?</button></div></header>
+
+<section class="page active" id="page-aim">
+ <div class="hero"><div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> VIRTUAL EXPERIMENT 03</div><h1>Dimensionality<br><em>Reduction.</em></h1><p>Explore how high-dimensional datasets can be represented using fewer features while preserving meaningful patterns and structure.</p><div class="hero-buttons"><button class="primary-btn" data-go="theory">Start experiment <span>→</span></button><button class="secondary-btn" data-go="simulation">Open simulation</button></div></div><div class="hero-visual"><div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div><div class="visual-core">64<span>DIMENSIONS</span></div><div class="visual-tag tag-a">PCA</div><div class="visual-tag tag-b">t-SNE</div><div class="visual-tag tag-c">UMAP</div><div class="visual-points" id="heroPoints"></div></div></div>
+ <div class="section-heading"><div><div class="eyebrow">EXPERIMENT DETAILS</div><h2>Aim of the experiment</h2></div><span class="subtle">Experiment 03</span></div>
+ <div class="panel aim-panel"><div class="aim-highlight">AIM</div><h2>To apply dimensionality reduction techniques such as PCA, SVD, t-SNE and UMAP on a high-dimensional dataset, analyze feature importance, and evaluate the impact of reduced feature sets on model accuracy.</h2><p class="muted">This virtual lab follows the aim and techniques specified in the supplied ML Experiments document.</p></div>
+ <div class="stats-grid"><div class="stat-card"><span class="stat-icon blue">▦</span><div class="stat-label">DATASET</div><strong>Digits</strong><small>1,797 samples · 64 features</small></div><div class="stat-card"><span class="stat-icon purple">⌗</span><div class="stat-label">TECHNIQUES</div><strong>04 methods</strong><small>PCA, SVD, t-SNE, UMAP</small></div><div class="stat-card"><span class="stat-icon green">◉</span><div class="stat-label">PROJECTION</div><strong>2 dimensions</strong><small>Visualize high-dimensional data</small></div><div class="stat-card"><span class="stat-icon orange">↗</span><div class="stat-label">EVALUATION</div><strong>Accuracy</strong><small>Compare reduced feature sets</small></div></div>
+ <div class="notice"><span>ⓘ</span><div><strong>How to use this lab</strong><p>Follow the sections in order: review the theory, complete the pre-test, explore the simulation, attempt the post-test, and review the results and conclusion.</p></div></div>
+</section>
+
+<section class="page" id="page-theory">
+ <div class="page-intro"><div class="eyebrow">01 / CONCEPTUAL FOUNDATION</div><h1>Theory</h1><p>Understand why dimensionality reduction is useful and how the four techniques represent data.</p></div>
+ <div class="panel theory-panel"><h2>1. What is dimensionality reduction?</h2><p>Dimensionality reduction is the process of reducing the number of input variables or features in a dataset while trying to retain the most useful information. It can simplify data, support visualization and reduce computational complexity.</p><h2>2. The curse of dimensionality</h2><p>As the number of dimensions increases, data can become sparse and distance-based relationships may become less intuitive. High-dimensional data can also be harder to visualize and analyze.</p><div class="concept-row"><div><b>Feature selection</b><p>Selects a subset of the original features.</p></div><div><b>Feature extraction</b><p>Transforms original features into a smaller set of new features.</p></div></div></div>
+ <div class="method-grid">
+  <article class="panel method-card"><div class="method-number">01</div><h2>Principal Component Analysis (PCA)</h2><span class="method-type">LINEAR</span><p>PCA transforms data into a set of orthogonal principal components. The first component captures the greatest possible variance, and each following component captures as much remaining variance as possible.</p><div class="formula">X → principal components</div><small>Useful for compression, visualization and identifying dominant variation.</small></article>
+  <article class="panel method-card"><div class="method-number">02</div><h2>Singular Value Decomposition (SVD)</h2><span class="method-type">LINEAR FACTORIZATION</span><p>SVD factorizes a matrix into three matrices. Truncated SVD keeps only the largest singular values and their corresponding vectors to form a lower-rank approximation.</p><div class="formula">A = UΣVᵀ</div><small>Useful for compact matrix representations and dimensionality reduction.</small></article>
+  <article class="panel method-card"><div class="method-number">03</div><h2>t-Distributed Stochastic Neighbor Embedding (t-SNE)</h2><span class="method-type nonlinear">NONLINEAR</span><p>t-SNE maps high-dimensional points into a lower-dimensional space while emphasizing the preservation of local neighborhood relationships.</p><div class="formula">High-D → Low-D neighborhoods</div><small>Often used to visualize clusters in complex datasets.</small></article>
+  <article class="panel method-card"><div class="method-number">04</div><h2>Uniform Manifold Approximation and Projection (UMAP)</h2><span class="method-type nonlinear">NONLINEAR</span><p>UMAP builds a low-dimensional representation using neighborhood relationships and an underlying manifold structure.</p><div class="formula">Neighborhood graph → embedding</div><small>Often used for visualization and exploration of high-dimensional data.</small></article>
+ </div>
+ <div class="panel table-panel"><div class="panel-title">Quick comparison</div><table><thead><tr><th>Property</th><th>PCA</th><th>SVD</th><th>t-SNE</th><th>UMAP</th></tr></thead><tbody><tr><td>Type</td><td>Linear</td><td>Linear</td><td>Nonlinear</td><td>Nonlinear</td></tr><tr><td>Core idea</td><td>Variance</td><td>Matrix factorization</td><td>Local similarity</td><td>Manifold / neighbors</td></tr><tr><td>Common use</td><td>Compression</td><td>Compression</td><td>Visualization</td><td>Visualization</td></tr></tbody></table></div>
+ <div class="notice"><span>ⓘ</span><div><strong>Dataset used in this lab</strong><p>The supplied experiment document lists the Scikit-learn Digits dataset as a suitable dataset. It contains 1,797 samples, each represented by 64 pixel features, with digit labels from 0 to 9.</p></div></div>
+ <div class="page-actions"><button class="primary-btn" data-go="pretest">Proceed to pre-test →</button></div>
+</section>
+
+<section class="page" id="page-pretest">
+ <div class="page-intro"><div class="eyebrow">02 / BEFORE THE EXPERIMENT</div><h1>Pre-test</h1><p>Check your prior understanding before exploring the simulation. Your score is recorded separately from the post-test.</p></div>
+ <div class="quiz-layout"><div class="panel quiz-panel"><div class="quiz-progress"><span id="preCount">QUESTION 01 / 05</span><span id="preScore">0 correct</span></div><div class="progress-track"><span id="preProgress" style="width:20%"></span></div><h2 id="preQuestion"></h2><div id="preOptions" class="answer-options"></div><div id="preFeedback" class="feedback hidden"></div><div class="quiz-actions"><button class="secondary-btn" id="preNext" disabled>Next question →</button></div></div><div class="panel quiz-aside"><div class="panel-title">Pre-test progress</div><div class="quiz-big" id="prePercent">0%</div><p class="muted">Correct answers</p><div class="quiz-tip">This is a baseline knowledge check. You can review the theory before continuing.</div></div></div>
+</section>
+
+<section class="page" id="page-simulation">
+ <div class="page-intro"><div class="eyebrow">03 / VIRTUAL EXPERIMENT</div><h1>Simulation</h1><p>Change the parameters and observe illustrative two-dimensional projections for each technique.</p></div>
+ <div class="lab-layout"><div class="panel chart-panel"><div class="chart-header"><div><div class="panel-title">2D projection <span class="live-label"><i></i> SIMULATED VIEW</span></div><p class="muted">Digits dataset · 10 classes · 2 projected dimensions</p></div><button class="small-btn" id="resetView">↺ Reset</button></div><div class="chart-wrap"><canvas id="scatterCanvas" width="900" height="560"></canvas><div class="chart-legend" id="chartLegend"></div></div><div class="chart-footer"><span>← Component 1</span><span>Component 2 →</span><span>180 illustrative points</span></div></div>
+ <div class="panel controls-panel"><div class="panel-title">Experiment controls <span class="tiny-tag">ADJUST</span></div><div class="control-group"><div class="control-label"><label>Technique</label></div><select id="methodSelect" class="wide-select"><option value="pca">PCA</option><option value="svd">SVD</option><option value="tsne">t-SNE</option><option value="umap">UMAP</option></select></div><div id="controlsArea"></div><div class="control-divider"></div><div class="panel-title">Simulation output</div><div class="metric-row"><span id="metricOneLabel">Illustrative score</span><strong id="metricOne">72.4%</strong></div><div class="metric-track"><span id="metricOneBar" style="width:72%"></span></div><div class="metric-row"><span id="metricTwoLabel">Retained dimensions</span><strong id="metricTwo">2 / 64</strong></div><div class="metric-row"><span id="metricThreeLabel">Projection quality</span><strong id="metricThree">Illustrative</strong></div><button class="primary-btn full-btn" id="runSimulation">Run simulation <span>→</span></button></div></div>
+ <div class="panel interpretation"><div class="panel-title">Observation guide</div><p id="interpretationText">Observe how samples are arranged in the two-dimensional projection. Colors represent digit classes. This is a parameter-driven illustration, not a computed embedding.</p></div>
+ <div class="notice"><span>ⓘ</span><div><strong>Simulation limitation</strong><p>This static lab uses illustrative, parameter-driven point patterns and sample metrics. It does not execute PCA, SVD, t-SNE, UMAP or a classifier. Do not report these values as measured experimental results.</p></div></div>
+ <div class="page-actions"><button class="primary-btn" data-go="posttest">Proceed to post-test →</button></div>
+</section>
+
+<section class="page" id="page-posttest">
+ <div class="page-intro"><div class="eyebrow">04 / AFTER THE EXPERIMENT</div><h1>Post-test</h1><p>Answer the questions after completing the theory and simulation sections.</p></div>
+ <div class="quiz-layout"><div class="panel quiz-panel"><div class="quiz-progress"><span id="postCount">QUESTION 01 / 05</span><span id="postScore">0 correct</span></div><div class="progress-track"><span id="postProgress" style="width:20%"></span></div><h2 id="postQuestion"></h2><div id="postOptions" class="answer-options"></div><div id="postFeedback" class="feedback hidden"></div><div class="quiz-actions"><button class="secondary-btn" id="postNext" disabled>Next question →</button></div></div><div class="panel quiz-aside"><div class="panel-title">Post-test progress</div><div class="quiz-big" id="postPercent">0%</div><p class="muted">Correct answers</p><div class="quiz-tip">Compare your pre-test and post-test scores in the Results section.</div></div></div>
+</section>
+
+<section class="page" id="page-results">
+ <div class="page-intro"><div class="eyebrow">05 / EXPERIMENT SUMMARY</div><h1>Results & observations</h1><p>Review the outcomes and learning evidence from this virtual experiment.</p></div>
+ <div class="stats-grid"><div class="stat-card"><div class="stat-label">PRE-TEST SCORE</div><strong id="preResult">Not attempted</strong><small>Baseline understanding</small></div><div class="stat-card"><div class="stat-label">POST-TEST SCORE</div><strong id="postResult">Not attempted</strong><small>Understanding after experiment</small></div><div class="stat-card"><div class="stat-label">SCORE CHANGE</div><strong id="scoreChange">—</strong><small>Post-test minus pre-test</small></div><div class="stat-card"><div class="stat-label">SIMULATION</div><strong id="methodResult">PCA</strong><small>Last selected method</small></div></div>
+ <div class="panel results-panel"><div class="panel-title">Key observations</div><ol class="result-list"><li>Dimensionality reduction represents a dataset using fewer dimensions.</li><li>PCA and SVD are linear approaches, while t-SNE and UMAP are nonlinear approaches.</li><li>PCA focuses on capturing variance through principal components.</li><li>t-SNE and UMAP are commonly used to visualize neighborhood and manifold structure.</li><li>Reducing the number of features may simplify a model, but retaining too few dimensions can remove useful information.</li></ol></div>
+ <div class="panel table-panel"><div class="panel-title">Illustrative accuracy relationship</div><p class="muted">Example values shown for discussion only; they are not measured model results.</p><table><thead><tr><th>Retained components</th><th>Illustrative accuracy</th><th>Feature reduction</th></tr></thead><tbody><tr><td>2</td><td>57.8%</td><td>96.9%</td></tr><tr><td>10</td><td>74.8%</td><td>84.4%</td></tr><tr><td>20</td><td>91.2%</td><td>68.8%</td></tr><tr><td>40</td><td>97.0%</td><td>37.5%</td></tr><tr><td>64</td><td>98.6%</td><td>0%</td></tr></tbody></table></div>
+ <div class="notice"><span>ⓘ</span><div><strong>Result interpretation</strong><p>In a real experiment, the actual accuracy values must be obtained by fitting and evaluating a classifier using the original and reduced feature sets. The table above is illustrative to demonstrate the type of comparison students should make.</p></div></div>
+ <div class="page-actions"><button class="primary-btn" data-go="conclusion">View conclusion →</button></div>
+</section>
+
+<section class="page" id="page-conclusion">
+ <div class="page-intro"><div class="eyebrow">06 / COMPLETION</div><h1>Conclusion</h1><p>Summarize the concepts explored in this virtual experiment.</p></div>
+ <div class="panel conclusion-panel"><div class="conclusion-icon">✓</div><div class="eyebrow">EXPERIMENT COMPLETED</div><h2>From high dimensions to meaningful representations.</h2><p>Through this virtual experiment, the concepts of dimensionality reduction and the working principles of PCA, SVD, t-SNE and UMAP were explored. The simulation illustrated how high-dimensional data can be represented in two dimensions and how different techniques produce different projection patterns.</p><p>The experiment also highlighted the importance of selecting an appropriate number of dimensions and evaluating the effect of reduced feature sets on model accuracy. In an actual implementation, these observations should be verified using computed embeddings and classifier evaluation.</p><div class="completion-grid"><div><b>4</b><span>Techniques reviewed</span></div><div><b>2</b><span>Knowledge tests</span></div><div><b>1</b><span>Interactive simulation</span></div></div><button class="primary-btn" data-go="aim">↺ Restart experiment</button></div>
+</section>
+<footer class="footer"><span>VIRTUAL ML LAB · EXPERIMENT 03</span><span>Educational simulation · No live ML computation</span></footer>
+</main></div>
+<div class="modal-backdrop hidden" id="helpModal"><div class="modal"><button class="modal-close" id="closeModal">×</button><div class="eyebrow">ABOUT THIS PROJECT</div><h2>Virtual Dimensionality Reduction Lab</h2><p>This is a static educational simulation. It demonstrates concepts through predesigned, parameter-driven visual patterns and illustrative metrics. It does not execute machine-learning algorithms or train models.</p><button class="primary-btn" id="modalOk">Got it</button></div></div>
+<script src="app.js"></script>
+</body></html>
