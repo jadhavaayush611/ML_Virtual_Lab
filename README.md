@@ -22,3 +22,7 @@ Open `index.html` in a modern browser. No package installation, backend, API key
 
 ## Simulation note
 The simulation is intentionally static. It uses illustrative parameter-driven plots and example metrics; it does not execute PCA, SVD, t-SNE, UMAP, or train a classifier. Do not present illustrative values as measured experimental results.
+
+
+## Simulation note
+The projection is an illustrative, deterministic simulation. Changing a parameter redraws the point distribution immediately; it does not run PCA, SVD, t-SNE, UMAP, or train a model on the Digits dataset.
